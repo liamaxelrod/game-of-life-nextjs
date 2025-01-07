@@ -1,13 +1,11 @@
-// https://www.youtube.com/watch?v=RGYkWCEji-c
-// guide for used for grading this
-
+/* backup working version
 "use client";
 
 import { useEffect, useState, useRef } from "react"
 
 const WIDTH = 800;
 const HEIGHT = 800;
-const CELL_SIZE = 10;
+const CELL_SIZE = 50;
 const NUM_ROWS = Math.floor(WIDTH / CELL_SIZE);
 const NUM_COLS = Math.floor(HEIGHT / CELL_SIZE);
 
@@ -25,26 +23,15 @@ export default function Home() {
   const board = createBoard();
   const [boardState, setBoardState] = useState<Board>(board)
   const [isplaying, setIsplaying] = useState(false);
-
-  const [isplayingSeeds, setIsplayingSeeds] = useState(false);
-
   const canvasRef = useRef<null | HTMLCanvasElement>(null); // create a reference to the canvas element
 
   useEffect(() => {
     if (!isplaying) {
       return;
     }
-    const inierval = setInterval(computNextBoardGol, 100);
+    const inierval = setInterval(computNextBoard, 100);
     return () => clearInterval(inierval);
-  }, [isplaying, computNextBoardGol]);
-
-  useEffect(() => {
-    if (!isplayingSeeds) {
-      return;
-    }
-    const inierval = setInterval(computNextBoardSeeds, 100);
-    return () => clearInterval(inierval);
-  }, [isplayingSeeds, computNextBoardSeeds]);
+  }, [isplaying, computNextBoard]);
 
   useEffect(() => {
     if(canvasRef.current) {
@@ -95,7 +82,7 @@ export default function Home() {
   }
 
 
-  function computNextBoardGol() {
+  function computNextBoard() {
     setBoardState((prevBoardState) => {
       const newBoard = prevBoardState.map((r) => [...r]);
 
@@ -117,26 +104,6 @@ export default function Home() {
     });
   }
 
-  function computNextBoardSeeds() {
-    setBoardState((prevBoardState) => {
-      const newBoard = prevBoardState.map((r) => [...r]);
-
-      for (let r = 0; r < NUM_ROWS; r++) {
-        for (let c = 0; c < NUM_COLS; c++) {
-          const aliveCount = countNbores(r, c);
-          if (prevBoardState[r][c] === 0) {
-            if (aliveCount === 2) {
-              newBoard[r][c] = 1;
-            }
-          } else {
-            newBoard[r][c] = 0;
-          }
-        }
-      }
-      return newBoard;
-    });
-  }
-
   function resetBoard() {
     //const board = createBoard();
     setBoardState(initialBoard);
@@ -150,15 +117,9 @@ export default function Home() {
         <div className="flex space-x-3">
           <button 
           className="py-4" 
-          onClick={computNextBoardGol}
+          onClick={computNextBoard}
           >
             Next
-          </button>
-          <button 
-          className="py-4" 
-          onClick={computNextBoardSeeds}
-          >
-            Seeds
           </button>
           <button
           className="py-4"
@@ -168,21 +129,9 @@ export default function Home() {
           </button>
           <button
           className="py-4"
-          onClick={() => {
-            setIsplaying(!isplaying);
-            setIsplayingSeeds(false);
-          }}
+          onClick={() => setIsplaying(!isplaying)}
           >
             {isplaying ? "Stop" : "play"}
-          </button>
-          <button
-          className="py-4"
-          onClick={() => {
-            setIsplayingSeeds(!isplayingSeeds)
-            setIsplaying(false);
-          }}
-          >
-            {isplayingSeeds ? "Stop Seeds" : "play Seeds"}
           </button>
         </div>
         <canvas 
@@ -208,5 +157,5 @@ export default function Home() {
     </div>
   );
 }
-
+*/
 

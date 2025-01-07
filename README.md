@@ -1,3 +1,10 @@
+# **project game of life**
+
+
+I used https://www.youtube.com/watch?v=RGYkWCEji-c to guide me through the creation of the game of life. my purposes was one to learn more about next. two learn about hosting website.
+
+Below you'll find instructions on how to run and learn more about next if you're not familiar
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

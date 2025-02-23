@@ -1,5 +1,6 @@
 # **project game of life**
 you can access the game online through the link below
+
 game-of-life-nextjs-nu.vercel.app
 
 I used https://www.youtube.com/watch?v=RGYkWCEji-c to guide me through the creation of the game of life. my purposes was one to learn more about next. two learn about hosting website.
